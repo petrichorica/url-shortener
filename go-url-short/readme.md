@@ -1,0 +1,1 @@
+docker run --name goserver --env MONGO_URL=mongodb://mongodb/urlshortdb --network url-short-net go-url-short
