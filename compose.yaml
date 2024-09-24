@@ -1,0 +1,24 @@
+services:
+  server:
+    build: ./go-url-short
+    environment:
+      MONGO_URL: mongodb://mongodb/urlshortdb
+    networks:
+      - server-db-net
+    ports:
+      - 3000:3000
+  mongodb:
+    image: mongo:8.0.0-noble
+    networks:
+      - server-db-net
+  frontend:
+    build: ./url-short-vite
+    environment:
+      NODE_ENV: production
+      VITE_API_URL: http://localhost:3000
+    ports:
+      - 5173:5173
+
+networks:
+  server-db-net:
+    driver: bridge
