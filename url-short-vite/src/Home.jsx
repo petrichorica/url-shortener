@@ -2,7 +2,7 @@ import './output.css'
 import React from 'react'
 import { useState } from 'react'
 
-const apiURL = "http://goserver:3000"
+const apiURL = import.meta.env.VITE_API_URL
 
 function Home() {
   const [shorturl, setShorturl] = useState(() => "short URL")
