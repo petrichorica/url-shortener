@@ -1,0 +1,16 @@
+name: go-server
+
+services:
+  server:
+    build: .
+    environment:
+      MONGO_URL: mongodb://mongodb/urlshortdb
+    networks:
+      - database-net
+    ports:
+      - 3000:3000
+
+networks:
+  database-net:
+    name: url-short-net
+    external: true
